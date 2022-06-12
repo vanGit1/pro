@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import JSONdata from '../MOCK_DATA.json';
+import JSONdata from '../MOCK_DATA_IMG.json';
 import ReactPaginate from 'react-paginate';
 
 const Home = () => {
@@ -12,13 +12,13 @@ const Home = () => {
 
 	const displayUsers = users
 		.slice(pageVisited, pageVisited + usersPerPage)
-		.map(user => {
+		.map((user, index) => {
 			return (
-				<div className="user">
+				<div className="user" key={index}>
 					<h3>{user.firstName}</h3>
+					<img src={user.image} />
 					<h3>{user.gender}</h3>
 					<h3>{user.age}</h3>
-					<h3>{user.email}</h3>
 				</div>
 			);
 		});
@@ -29,7 +29,7 @@ const Home = () => {
 	};
 	return (
 		<div className="App">
-			{displayUsers}
+			<div onClick={() => console.log(displayUsers)}>{displayUsers}</div>
 			<ReactPaginate
 				previousLabel={'<'}
 				nextLabel={'>'}
