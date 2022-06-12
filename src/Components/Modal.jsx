@@ -1,19 +1,24 @@
 import React from 'react';
+import './Modal.scss';
 
 const Modal = ({ setOpenModal }) => {
 	return (
 		<div className="modalBackground">
 			<div className="modalContainer">
-				<button onClick={() => setOpenModal(false)}>close X</button>
-				<div>
+				<div className="titleCloseBtn">
+					<button onClick={() => setOpenModal(false)}>X</button>
+				</div>
+				<div className="title">
 					<h1>Modal title</h1>
 				</div>
-				<div>
+				<div className="body">
 					<p>Modal body</p>
 				</div>
-				<div>
-					<button onClick={() => setOpenModal(false)}>Close</button>
-					<button onClick={()=>window.alert('added')}>Add</button>
+				<div className="footer">
+					<button id="cancelBtn" onClick={() => setOpenModal(false)}>
+						Close
+					</button>
+					<button onClick={() => window.alert('added')}>Add</button>
 				</div>
 			</div>
 		</div>

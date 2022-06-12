@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import JSONdata from '../MOCK_DATA_IMG.json';
 import ReactPaginate from 'react-paginate';
+import './Pagination.scss';
 
 const Pagination = ({ setOpenModal }) => {
 	const [users, setUsers] = useState(JSONdata.slice(0, 10));
@@ -17,8 +18,8 @@ const Pagination = ({ setOpenModal }) => {
 				<div onClick={() => setOpenModal(true)} className="user" key={index}>
 					<h3>{user.firstName}</h3>
 					<img src={user.image} />
-					<h3>{user.gender}</h3>
-					<h3>{user.age}</h3>
+					<h3>Gender: {user.gender}</h3>
+					<h3>Age: {user.age}</h3>
 				</div>
 			);
 		});
