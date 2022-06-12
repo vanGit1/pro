@@ -4,7 +4,7 @@ import JSONdata from '../MOCK_DATA_IMG.json';
 import ReactPaginate from 'react-paginate';
 
 const Home = () => {
-	const [users, setUsers] = useState(JSONdata.slice(0, 50));
+	const [users, setUsers] = useState(JSONdata.slice(0, 10));
 	const [pageNumber, setPageNumber] = useState(0);
 
 	const usersPerPage = 2;
