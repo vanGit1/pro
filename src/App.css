@@ -1,10 +1,11 @@
 .App {
-  background-color: #eee;
+  background-color: rgb(238, 238, 238);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100vw;
+	height: 94vh;
 }
 .user {
 	border: 1px solid rgb(0, 0, 0);

@@ -1,7 +1,7 @@
 .modalBackground {
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(200, 200, 200, 0.219);
+	background-color: rgba(140, 140, 140, 0.3);
 	position: fixed;
 	display: flex;
 	justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .modalContainer {
-	width: 500px;
+	width: 450px;
 	height: 500px;
 	border-radius: 12px;
 	background-color: white;
@@ -25,7 +25,7 @@
 		button {
 			background-color: transparent;
 			border: none;
-			font-size: 25px;
+			font-size: 20px;
 			cursor: pointer;
 		}
 	}
@@ -33,7 +33,7 @@
 	.title {
 		display: inline-block;
 		text-align: center;
-		margin-top: 10px;
+		margin-top: 5px;
 	}
 	.body {
 		flex: 50%;
@@ -44,12 +44,13 @@
 		text-align: center;
 	}
 	.footer {
-		flex: 20%;
+		flex: 50%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
 		button {
-			width: 150px;
+			width: 130px;
 			height: 45px;
 			margin: 10px;
 			border: none;
@@ -58,9 +59,9 @@
 			border-radius: 8px;
 			font-size: 20px;
 			cursor: pointer;
-      
+
 			&:hover {
-				opacity: 0.8;
+				opacity: 0.75;
 			}
 		}
 	}
