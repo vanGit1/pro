@@ -18,7 +18,7 @@ const Modal = ({ setOpenModal, dataProps }) => {
 					<img src={dataProps.image} />
 				</div>
 				<div className="body">
-					<p>{dataProps.age}</p>
+					<p>Age: {dataProps.age}</p>
 				</div>
 				<div className="footer">
 					<button id="cancelBtn" onClick={() => setOpenModal(false)}>
