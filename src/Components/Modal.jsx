@@ -16,7 +16,6 @@ const Modal = ({ setOpenModal, dataProps }) => {
 				</div>
 				<div className="body">
 					<img src={dataProps.image} />
-
 				</div>
 				<div className="body">
 					<p>{dataProps.age}</p>
@@ -25,7 +24,16 @@ const Modal = ({ setOpenModal, dataProps }) => {
 					<button id="cancelBtn" onClick={() => setOpenModal(false)}>
 						Close
 					</button>
-					<button onClick={() => window.alert('added')}>Add</button>
+					<button
+						onClick={() => {
+							window.alert(`${dataProps.firstName} is in your card now!👍`);
+							{
+								setOpenModal(false);
+							}
+						}}
+					>
+						Add
+					</button>
 				</div>
 			</div>
 		</div>
