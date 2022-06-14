@@ -4,20 +4,20 @@
 	list-style: none;
 	display: flex;
 	justify-content: center;
-}
 
-.paginationBttns a {
-	padding: 10px;
-	margin: 8px;
-	border-radius: 5px;
-	border: 1px solid #2b2eff;
-	color: #2b2eff;
-	cursor: pointer;
-}
+	a {
+		padding: 10px;
+		margin: 8px;
+		border-radius: 5px;
+		border: 1px solid #2b2eff;
+		color: #2b2eff;
+		cursor: pointer;
 
-.paginationBttns a:hover {
-	color: white;
-	background-color: #2b2eff;
+		&:hover {
+			color: white;
+			background-color: #2b2eff;
+		}
+	}
 }
 
 .paginationActive a {
@@ -26,6 +26,7 @@
 }
 
 .paginationDisabled a {
-	color: grey;
-	background-color: grey;
+	display: none;
+	// color: grey;
+	// background-color: grey;
 }
