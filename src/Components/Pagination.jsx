@@ -1,9 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import './Pagination.scss';
 
-const Pagination = ({ setOpenModal, pageCount, displayUsers, changePage }) => {
+const Pagination = ({ pageCount, displayUsers, changePage }) => {
 	return (
 		<div className="App">
 			<div>{displayUsers}</div>

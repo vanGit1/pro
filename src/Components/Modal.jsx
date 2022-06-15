@@ -1,7 +1,11 @@
 import React from 'react';
 import './Modal.scss';
 
-const Modal = ({ setOpenModal, dataProps }) => {
+const Modal = ({ setOpenModal, dataProps, onAddToCart }) => {
+
+	const addItemToCart = dataProps => {
+		onAddToCart(dataProps);
+	};
 	return (
 		<div className="modalBackground">
 			<div className="modalContainer">
@@ -27,9 +31,7 @@ const Modal = ({ setOpenModal, dataProps }) => {
 					<button
 						onClick={() => {
 							window.alert(`${dataProps.firstName} is in your card now!👍`);
-							{
-								setOpenModal(false);
-							}
+							{setOpenModal(false)} {addItemToCart(dataProps);}
 						}}
 					>
 						Add
