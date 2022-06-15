@@ -11,6 +11,7 @@ import Cart from './pages/Cart';
 import Navbar from './Components/Navbar';
 
 function App() {
+	
 	const [users, setUsers] = useState(JSONdata.slice(0, 10));
 	const [pageNumber, setPageNumber] = useState(0);
 	const [openModal, setOpenModal] = useState(false);
