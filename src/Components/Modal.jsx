@@ -30,7 +30,7 @@ const Modal = ({ setOpenModal, dataProps, onAddToCart }) => {
 					</button>
 					<button
 						onClick={() => {
-							window.alert(`${dataProps.firstName} is in your card now!👍`);
+							// window.alert(`${dataProps.firstName} is in your card now!👍`);
 							{setOpenModal(false)} {addItemToCart(dataProps);}
 						}}
 					>

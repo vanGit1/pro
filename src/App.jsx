@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 
-import JSONdata from './MOCK_DATA_IMG.json';
+import JSONdata from './MOCK_DATA.json';
 
 import './App.scss';
 import Contacts from './pages/Contacts';
@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import ErrorPage from './pages/ErrorPage';
 import Cart from './pages/Cart';
 import Navbar from './Components/Navbar';
+import RangeSlider from './Components/RangeSlider';
 
 function App() {
 	const [users, setUsers] = useState(JSONdata.slice(0, 10));
@@ -77,6 +78,7 @@ function App() {
 	return (
 		<>
 			<Navbar />
+			<RangeSlider/>
 			<div className="search_container">
 				<input
 					type="text"
