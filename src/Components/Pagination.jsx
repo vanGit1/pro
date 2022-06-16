@@ -5,7 +5,7 @@ import './Pagination.scss';
 const Pagination = ({ pageCount, displayUsers, changePage }) => {
 	return (
 		<div className="App">
-			<div>{displayUsers}</div>
+			<div>{displayUsers()}</div>
 			<ReactPaginate
 				previousLabel={'<'}
 				nextLabel={'>'}

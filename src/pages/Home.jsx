@@ -1,5 +1,6 @@
 import Modal from '../Components/Modal';
 import Pagination from '../Components/Pagination';
+import './Home.scss'
 
 const Home = ({
 	openModal,
@@ -8,7 +9,7 @@ const Home = ({
 	changePage,
 	setOpenModal,
 	saveData,
-	onAddToCart
+	onAddToCart,
 }) => {
 	return (
 		<>
