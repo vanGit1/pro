@@ -10,6 +10,7 @@ import ErrorPage from './pages/ErrorPage';
 import Cart from './pages/Cart';
 import Navbar from './Components/Navbar';
 import RangeSlider from './Components/RangeSlider';
+import Checkbox from './Components/Checkbox';
 
 function App() {
 	const [users, setUsers] = useState(JSONdata.slice(0, 10));
@@ -19,6 +20,7 @@ function App() {
 
 	const [search, setSearch] = useState('');
 
+	const [showMale, setShowMale] = useState(false);
 	const [cartItems, setCartItems] = useState([]);
 
 	const usersPerPage = 2;
@@ -31,7 +33,12 @@ function App() {
 	const displayUsers = () => {
 		let temp = users.filter(val => {
 			if (search == '') {
-				return val;
+				if (!showMale) {
+					return val;
+				}
+				if (val.gender === 'Male') {
+					return val;
+				}
 			} else if (val.firstName.toLowerCase().includes(search.toLowerCase())) {
 				return val;
 			}
@@ -78,7 +85,7 @@ function App() {
 	return (
 		<>
 			<Navbar />
-			<RangeSlider/>
+
 			<div className="search_container">
 				<input
 					type="text"
@@ -90,6 +97,9 @@ function App() {
 				></input>
 			</div>
 			<div className="container">
+				<RangeSlider />
+				{/* посмотрит какое было до этого и сделает противоположное */}
+				<Checkbox onToggleMale={() => setShowMale(!showMale)} />
 				<Routes>
 					<Route
 						path="/"
