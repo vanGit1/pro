@@ -1,19 +1,25 @@
-import * as React from 'react';
-import Checkbox from '@mui/material/Checkbox';
+import * as React from "react";
+import Checkbox from "@mui/material/Checkbox";
+import { FormControlLabel } from "@mui/material";
 
-export default function ControlledCheckbox({ onToggleMale }) {
+export default function ControlledCheckbox({ onToggleMale, gender }) {
 	const [checked, setChecked] = React.useState(false);
 
-	const handleChange = event => {
+	const handleChange = (event) => {
 		setChecked(event.target.checked);
-		onToggleMale();
-	};
+    onToggleMale(event);
+  };
 
-	return (
-		<Checkbox
-			checked={checked}
-			onChange={handleChange}
-			inputProps={{ 'aria-label': 'controlled' }}
-		/>
-	);
+  return (
+    <FormControlLabel
+      label={gender}
+      control={
+        <Checkbox
+          checked={checked}
+          inputProps={{ "aria-label": "controlled" }}
+          onChange={handleChange}
+        />
+      }
+    />
+  );
 }
