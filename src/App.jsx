@@ -13,16 +13,10 @@ import RangeSlider from './Components/RangeSlider';
 import Checkbox from './Components/Checkbox';
 
 function App() {
+	let arrayGenders = ['Male', 'Female', 'Bigender', 'Non-binary'];
+	// pagination
 	const [users, setUsers] = useState(JSONdata.slice(0, 10));
 	const [pageNumber, setPageNumber] = useState(0);
-
-	const [openModal, setOpenModal] = useState(false);
-
-	const [search, setSearch] = useState('');
-
-	const [showMale, setShowMale] = useState(false);
-	const [cartItems, setCartItems] = useState([]);
-
 	const usersPerPage = 2;
 	const pageVisited = pageNumber * usersPerPage;
 	const [saveData, setSaveData] = useState('');
@@ -30,19 +24,31 @@ function App() {
 		Math.ceil(users.length / usersPerPage)
 	);
 
+	// modal
+	const [openModal, setOpenModal] = useState(false);
+	// search
+	const [search, setSearch] = useState('');
+	//checkbox
+	const [showArray, setShowArray] = useState([]);
+
+	const [cartItems, setCartItems] = useState([]);
+
+	/* 	filterSearch(){
+	val.firstName.toLowerCase().includes(search.toLowerCase())
+		} */
 	const displayUsers = () => {
-		let temp = users.filter(val => {
-			if (search == '') {
-				if (!showMale) {
-					return val;
-				}
-				if (val.gender === 'Male') {
-					return val;
-				}
-			} else if (val.firstName.toLowerCase().includes(search.toLowerCase())) {
-				return val;
-			}
-		});
+		let temp;
+		if (!showArray.length) {
+			temp = users;
+		} else {
+			temp = users.filter(user => showArray.includes(user.gender));
+		}
+
+		if (search !== '') {
+			temp = temp.filter(user =>
+				user.firstName.toLowerCase().includes(search.toLowerCase())
+			);
+		}
 		console.log(temp, pageVisited, pageVisited + usersPerPage);
 		let Element = [];
 		temp
@@ -77,6 +83,10 @@ function App() {
 		setCartItems(prev => [...prev, user]);
 	};
 
+	const clearShowArray = genderS => {
+		setShowArray(showArray.filter(gender => gender !== genderS));
+	};
+
 	// const pageCount = Math.ceil(users.length / usersPerPage);
 	const changePage = ({ selected }) => {
 		setPageNumber(selected);
@@ -99,7 +109,46 @@ function App() {
 			<div className="container">
 				<RangeSlider />
 				{/* посмотрит какое было до этого и сделает противоположное */}
-				<Checkbox onToggleMale={() => setShowMale(!showMale)} />
+				{arrayGenders.map(gender => {
+					return (
+						<Checkbox
+							onToggleMale={event =>
+								setShowArray(prev => [
+									...prev,
+									event.target.checked ? gender : clearShowArray(gender),
+								])
+							}
+							gender={gender}
+						/>
+					);
+				})}
+				{/* <Checkbox
+          onToggleMale={(event) =>
+            setShowArray((prev) => [
+              ...prev,
+              event.target.checked ? "Male" : clearShowArray("Male"),
+            ])
+          }
+          gender={"Male"}
+        />
+        <Checkbox
+          onToggleMale={(event) =>
+            setShowArray((prev) => [
+              ...prev,
+              event.target.checked ? "Female" : clearShowArray("Female"),
+            ])
+          }
+          gender={"Female"}
+        />
+        <Checkbox
+          onToggleMale={(event) =>
+            setShowArray((prev) => [
+              ...prev,
+              event.target.checked ? "Bigender" : clearShowArray("Bigender"),
+            ])
+          }
+          gender={"Bigender"}
+        /> */}
 				<Routes>
 					<Route
 						path="/"
